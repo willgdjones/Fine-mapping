@@ -1,9 +1,15 @@
 name: fine-mapping
+channels:
+- biobuilds
+- bioconda
+- r
+- defaults
 dependencies:
 - appnope=0.1.0=py27_0
 - backports=1.0=py27_0
 - backports_abc=0.4=py27_0
-- configparser=3.5.0b2=py27_1
+- bioconda::python-dateutil=2.3=py27_0
+- configparser=3.5.0=py27_0
 - cycler=0.10.0=py27_0
 - decorator=4.0.10=py27_0
 - entrypoints=0.2.2=py27_0
@@ -11,16 +17,16 @@ dependencies:
 - functools32=3.2.3.2=py27_0
 - get_terminal_size=1.0.0=py27_0
 - ipykernel=4.3.1=py27_0
-- ipython=4.2.0=py27_1
+- ipython=5.0.0=py27_0
 - ipython_genutils=0.1.0=py27_0
 - ipywidgets=4.1.1=py27_0
 - jinja2=2.8=py27_1
 - jsonschema=2.5.1=py27_0
 - jupyter=1.0.0=py27_3
-- jupyter_client=4.2.2=py27_0
-- jupyter_console=4.1.1=py27_0
+- jupyter_client=4.3.0=py27_0
+- jupyter_console=5.0.0=py27_0
 - jupyter_core=4.1.0=py27_0
-- libpng=1.6.22=0
+- libsodium=1.0.3=0
 - markupsafe=0.23=py27_2
 - matplotlib=1.5.1=np111py27_0
 - mistune=0.7.2=py27_1
@@ -30,47 +36,59 @@ dependencies:
 - notebook=4.2.1=py27_0
 - numpy=1.11.1=py27_0
 - openssl=1.0.2h=1
+- pandas=0.18.1=np111py27_0
 - path.py=8.2.1=py27_0
 - pathlib2=2.1.0=py27_0
 - pexpect=4.0.1=py27_0
 - pickleshare=0.7.2=py27_0
 - pip=8.1.2=py27_0
+- prompt_toolkit=1.0.3=py27_0
 - ptyprocess=0.5.1=py27_0
 - pygments=2.1.3=py27_0
 - pyparsing=2.1.4=py27_0
-- pyqt=4.11.4=py27_3
+- pyqt=4.11.4=py27_4
 - python=2.7.12=1
-- python-dateutil=2.5.3=py27_0
 - python.app=1.2=py27_4
-- pytz=2016.4=py27_0
-- pyzmq=15.2.0=py27_1
-- qt=4.8.7=3
+- pytz=2016.6.1=py27_0
+- qt=4.8.7=4
 - qtconsole=4.2.1=py27_0
+- r::libpng=1.6.17=0
+- r::pyzmq=14.5.0=py27_1
+- r::singledispatch=3.4.0.3=py27_1
+- r::zeromq=4.0.5=1
+- r::zlib=1.2.8=1
 - readline=6.2=2
 - scikit-learn=0.17.1=np111py27_2
 - scipy=0.17.1=np111py27_1
+- seaborn=0.7.0=py27_0
 - setuptools=23.0.0=py27_0
 - simplegeneric=0.8.1=py27_1
-- singledispatch=3.4.0.3=py27_1
-- sip=4.16.9=py27_0
+- sip=4.18=py27_0
 - six=1.10.0=py27_0
 - sqlite=3.13.0=0
 - ssl_match_hostname=3.4.0.2=py27_1
 - terminado=0.6=py27_0
 - tk=8.5.18=0
 - tornado=4.3=py27_1
-- traitlets=4.2.1=py27_0
+- traitlets=4.2.2=py27_0
+- wcwidth=0.1.7=py27_0
 - wheel=0.29.0=py27_0
-- zlib=1.2.8=3
+- yaml=0.1.6=0
 - pip:
   - backports-abc==0.4
   - backports.shutil-get-terminal-size==1.0.0
   - backports.ssl-match-hostname==3.4.0.2
+  - bidict==0.12.0
+  - cffi==1.7.0
   - ipython-genutils==0.1.0
-  - jupyter-client==4.2.2
-  - jupyter-console==4.1.1
+  - jupyter-client==4.3.0
+  - jupyter-console==5.0.0
   - jupyter-core==4.1.0
-  - psutil==4.3.0
-  - python-contrib-nbextensions==alpha
-  - pyyaml==3.11
+  - prompt-toolkit==1.0.3
+  - pycparser==2.14
+  - pynacl==1.0.1
+  - python-dateutil==2.3
+  - pyzmq==14.5.0
+  - singledispatch==3.4.0.3
+prefix: /Users/fonz/anaconda/envs/fine-mapping
 
