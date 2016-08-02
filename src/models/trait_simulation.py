@@ -1,48 +1,6 @@
 
 # coding: utf-8
 
-# # Initialisation
-
-# ## Trait simulation
-
-# ### Explanation
-
-# Given genotype data and an LD structure, simulate a trait which is linearly associated with a variant, or a set of variants. Here I generate a large $m \times n$ matrix ($m$=number of samples, $n$=number of SNPs), with $0,1,2$ as elements.
-# 
-# Then, I can choose a set of SNPs, and from these SNPs I generate a trait $y$ with a linear model:
-# 
-# $$y = X\beta + \epsilon$$
-# 
-# To calcuate the total variance explained, we take the variance of both sides:
-# 
-# $$ Var(y) = \beta^2 + Var(\epsilon) $$
-# 
-# since $Var(X\beta) = \beta^{2}Var(X)$ and we have normalised $Var(X)$ to be equal to 1.
-# 
-# In this model we assume that the total variance is 1, and we specify the amount of genetic variance, $\beta$, that exists. This is the variance explained purely by the genetic component. For each SNP in the set, $\beta_i$, we provide the proportion of the genetic variance that this SNP explains into terms of a ratio. For example SNPs 1, 5 and 10 might be causal, but SNP 10 might have twice the effect of SNPs 1 and 5, whose effects are equal. In this case, the SNP effect ratios would be 1:1:2 respectively.
-# 
-# To calculate the raw $\beta$ values for the model, we notice that:
-# 
-# $$ \beta^2 = \sum_{i}\beta_i^2 = 1 $$
-# 
-# and if each $\beta$ has ratio $r_{i}$ then the ratios $\beta_i = r_{i}u$ for some constant $u$.
-# 
-# Thus,
-# 
-# $$ \beta^2 = \sum_{i}\beta_i^2 = \sum_{i}(r_{i}u)^2 = u^2\sum_{i}r_{i}^2  = 1 $$
-# 
-# and so 
-# 
-# $$ u = \frac{1}{\sqrt{\sum_{i}r_{i}^2}} $$
-# 
-# Each $\beta$ can then be calculated by $\beta_i = ur_i$.
-# 
-# For the example, the $\beta$ scores for SNP 1, 5 and 10 would be 0.408, 0.408 and 0.816 respectively.
-# 
-# Following this, I try to recover these sets of SNPs. I generate p-values for each SNP being associated with the trait, by individually building univariate linear models for each SNPs, as GWAS summary statistics are generated.
-
-# ### Implementation
-
 # In[3]:
 
 import numpy
@@ -108,8 +66,6 @@ def calc_effect_sizes(models):
 # z1 = [x.slope / x.stderr for x in models1]
 
 
-
-# ### Example
 
 # In[7]:
 

@@ -1,60 +1,6 @@
 
 # coding: utf-8
 
-# # Colocalisation
-
-# Is it possible to ascertain whether two traits are due to the same causal variant?
-# 
-# This is the aim of colocalisation. This is calculated by independently computing the gene-set probabilities, and then calculating the cartesian product with a multiplication operation to form a colocalisation matrix. Summing along the diagonal entries gives the total evidence for colocalisation.
-# 
-# Suppose the posterior probabilities for each trait $\mathbf{a}$ and $\mathbf{b}$ with respect to the same genotype are the vectors:
-# 
-# $$
-# \mathbf{a}
-# =
-# \begin{pmatrix}
-#  & a_{1}  & \\
-#  & \vdots & \\
-#  & a_{i}  & \\
-#  & \vdots & \\
-#  & a_{M}  &
-# \end{pmatrix}
-# ,
-# \quad
-# \mathbf{b}
-# =
-# \begin{pmatrix}
-#  & b_{1}  & \\
-#  & \vdots & \\
-#  & b_{i}  & \\
-#  & \vdots & \\
-#  & b_{M}  &
-# \end{pmatrix}
-# $$
-# 
-# where $a_i$ and $b_i$ denotes the posterior probability that the $i$th candidate gene set is causal to trait $\mathbf{a}$ and $\mathbf{b}$ respectively
-# 
-# The colocalisation matrix is defined as the Cartesian (also known as dyadic) product of these two vectors $\mathbf{a}  \unicode{x25E6}  \mathbf{b}$. 
-# 
-# $$
-# \mathbf{a} \unicode{x25E6} \mathbf{b}
-# =
-# \begin{pmatrix}
-#  a_{1}b_{1} &        &   \dots    &        &  a_{1}b_{M}  \\
-#             & \ddots &            &        &              \\
-#  \vdots     &        & a_{i}b_{i} &        &  \vdots      \\
-#             &        &            & \ddots &              \\
-#  a_{M}b_{1} &        &   \dots    &        & a_{M}b_{M}  
-# \end{pmatrix}
-# $$
-# 
-# an $M \times M$ matrix.
-# 
-# The sum $\sum^{M}_{i=1}a_{i}b_{i}$ along the diagonal is the total evidence for colocalisation.
-# 
-# 
-# 
-
 # In[ ]:
 
 import numpy
@@ -145,7 +91,7 @@ def is_colocalised(X, LD_matrix ,trait1, trait2,db=0):
     return sum([colocalisations[i][i] for i in range(colocalisations.shape[0])])
 
 
-# In[2]:
+# In[4]:
 
 if __name__ == '__main__':
     get_ipython().magic(u'reset -f')
@@ -179,7 +125,7 @@ if __name__ == '__main__':
 
         ### simulate two traits and scale columns
         y1 = preprocessing.scale(models.trait_simulation.simulate_traits(X, snp_ratios=gr[0], beta_var=0.2))
-        y2 = preprocessing.scale(models.trait_simulation.simulate_traits(X, snp_ratios=gr[0], beta_var=0.2))
+        y2 = preprocessing.scale(models.trait_simulation.simulate_traits(X, snp_ratios=gr[1], beta_var=0.2))
 
-        print gr, models.colocalisation.is_colocalised(X,LD_matrix,y1,y2) > 0.6
+        print gr, models.colocalisation.is_colocalised(X,LD_matrix,y1,y2)
 
