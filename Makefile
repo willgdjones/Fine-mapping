@@ -6,4 +6,8 @@ generate_code:
 	jupyter nbconvert --to script notebooks/1.0-wj-colocalisation.ipynb
 	mv notebooks/1.0-wj-colocalisation.py src/models/colocalisation.py
 
+environment:
+	pip freeze > requirements.txt
+	conda env export > environment.yaml
+
 	
