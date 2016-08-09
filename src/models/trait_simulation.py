@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[3]:
+# In[2]:
 
 import numpy
 import math
@@ -67,7 +67,7 @@ def calc_effect_sizes(models):
 
 
 
-# In[7]:
+# In[3]:
 
 if __name__ == '__main__':
     get_ipython().magic(u'reset -f')
@@ -110,4 +110,9 @@ if __name__ == '__main__':
 
         gene_set_posteriors = models.bayes_factors.calc_posterior(gene_set_BFs)
         print r, gene_set_posteriors[0:5]
+
+
+# In[ ]:
+
+
 
